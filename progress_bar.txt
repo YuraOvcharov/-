@@ -1,0 +1,213 @@
+/****************HTML****************/
+   <div class="form-group m-b-7">
+        <div class="complete-line__text">Event setup completed:</div>
+        <div class="complete-line__percent">0%</div>
+    </div>
+    <div class="complete-line">
+        <div class="colors">
+        </div>
+    </div> 
+
+
+
+
+            <div class="form-control complete-line__form">
+                <input type="text" class="form-control__input-text form-control__input-text_title" placeholder="Add title...">
+		<input type="text" class="form-control__input-text form-control__input-text_title" placeholder="Add title...">
+            </div> 
+
+           <div class="form-control complete-line__form">
+                <input type="text" class="form-control__input-text form-control__input-text_title" placeholder="Add title...">
+		<input type="text" class="form-control__input-text form-control__input-text_title" placeholder="Add title...">
+            </div> 
+
+/****************CSS****************/
+.complete-line {
+    background: #009dff;
+    /*background:linear-gradient(to right,#009dff 0,#00c8ff 100%);*/
+    position:relative;
+    z-index:1031;
+    height:1px;
+    transition:all 1s;
+    width:0;
+    overflow: hidden;
+    margin-bottom: 35px;
+}
+.colors {
+    width: 100%;
+    height: 4px;
+}
+.complete-line__percent{
+    color: #ff7579;
+    transition:all 1s;
+    overflow: hidden;
+    font-family: SFUIText;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: -0.3px;
+}
+.form-group{
+     display: flex;
+    margin-bottom: 25px;
+    width: 100%;
+
+    align-items: center;
+    justify-content: space-between;
+}
+.complete-line__text{
+  opacity: 0.5;
+  font-family: SFUIText-Regular;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: -0.3px;
+  color: #6d6576;
+}
+/****************JS****************/
+function solid() {
+    function cback(e) {
+        var t = [];
+        for (var n = inputs.length; n--;) {
+            if (!inputs[n].value.length) t.push(inputs[n]);
+        }
+        var r = t.length;
+        var i = inputs.length;
+        var s = document.querySelectorAll(".top");
+        for (var o = s.length; o--;) {
+            s[o].style.width = 100 - r / i * 100 + "%";
+                        console.log("solid");
+        }
+    }
+    var forms = document.querySelectorAll(".form"),
+        inputs = [];
+    for (var i = forms.length; i--;) {
+        var els = forms[i].querySelectorAll("input, textarea, select");
+        for (var j = els.length; j--;) {
+            if (els[j].type != "button" && els[j].type != "submit") {
+                inputs.push(els[j]);
+                els[j].addEventListener("input", cback, false);
+            }
+        }
+    }
+}
+
+function flash() {
+    function cback(e) {
+        var t = [];
+        for (var n = inputs.length; n--;) {
+            if (!inputs[n].value.length) t.push(inputs[n]);
+        }
+        var r = t.length;
+        var i = inputs.length;
+        var s = document.querySelectorAll(".complete-line");
+        var per = document.querySelectorAll(".complete-line__percent");
+        for (var o = s.length; o--;) {
+            s[o].style.width = 100 - r / i * 100 + "%";
+            console.log(s[0]);
+            s[o].style.background = cols;//cols[i - r - 1];
+            $('.complete-line__percent').text(s[o].style.width );
+
+        }
+    }
+    var forms = document.querySelectorAll(".complete-line__form"),
+        inputs = [];
+    for (var i = forms.length; i--;) {
+        var els = forms[i].querySelectorAll("input, textarea, select");
+        for (var j = els.length; j--;) {
+            if (els[j].type != "button" && els[j].type != "submit") {
+                inputs.push(els[j]);
+                els[j].addEventListener("input", cback, false);
+                els[j].addEventListener("click", cback, false);
+            }
+        }
+    }
+
+    /*var cols = ["#1ABC9C", "#EC7063", "#3498DB"];*/
+    var cols = ["#ff7579"];
+}
+
+function gradient() {
+    function cback(e) {
+        var t = [];
+        for (var n = inputs.length; n--;) {
+            if (!inputs[n].value.length) t.push(inputs[n]);
+        }
+        var r = t.length;
+        var i = inputs.length;
+        var s = document.querySelectorAll(".top");
+        for (var o = s.length; o--;) {
+            s[o].style.width = 100 - r / i * 100 + "%";
+                        console.log("gradient");
+        }
+    }
+    var forms = document.querySelectorAll(".form"),
+        inputs = [];
+    for (var i = forms.length; i--;) {
+        var els = forms[i].querySelectorAll("input, textarea, select");
+        for (var j = els.length; j--;) {
+            if (els[j].type != "button" && els[j].type != "submit") {
+                inputs.push(els[j]);
+                els[j].addEventListener("input", cback, false);
+            }
+        }
+    }
+}
+
+function sections() {
+    function cback(e) {
+        var t = [];
+        for (var n = inputs.length; n--;) {
+            if (!inputs[n].value.length) t.push(inputs[n]);
+        }
+        var r = t.length;
+        var i = inputs.length;
+        var s = document.querySelectorAll(".top");
+        for (var o = s.length; o--;) {
+            s[o].style.width = 100 - r / i * 100 + "%";
+                        console.log("section");
+        }
+    }
+    var forms = document.querySelectorAll(".form"),
+        inputs = [];
+    for (var i = forms.length; i--;) {
+        var els = forms[i].querySelectorAll("input, textarea, select");
+        for (var j = els.length; j--;) {
+            if (els[j].type != "button" && els[j].type != "submit") {
+                inputs.push(els[j]);
+                els[j].addEventListener("input", cback, false);
+            }
+        }
+    }
+
+
+function generateCSSGradient(colours) {
+    var l = colours.length,
+        i;
+    for (i = 0; i < l; i++) colours[i] = colours[i].join(" ");
+    return "linear-gradient( to right, " + colours.join(", ") + ")";
+}
+
+    //Edit your colors here. Enter the color twice.
+    var cols = [
+        ["#1ABC9C", "0%"],
+        ["#1ABC9C", "33.3%"],
+        ["#EC7063", "33.3%"],
+        ["#EC7063", "66.6%"],
+        ["#3498DB", "66.6%"],
+        ["#3498DB", "100%"]
+    ];
+    document.getElementsByClassName('top').innerHTML = '<div class="colors"></div>';
+    document.querySelector(".colors").style.background = generateCSSGradient(cols);
+
+    var window_width = window.innerWidth + "px";
+    document.querySelector(".colors").style.width = window_width;
+};
+flash();
+
+
+
+
+
