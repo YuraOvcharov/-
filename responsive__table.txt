@@ -3,17 +3,17 @@
            <table class="app-org__table">
                <tr>
                 <th>ID</th>
-                <th>Название приложения</th>
+                <th>ГЌГ Г§ГўГ Г­ГЁГҐ ГЇГ°ГЁГ«Г®Г¦ГҐГ­ГЁГї</th>
                 <th>Email</th>
-                <th>Действия</th>
+                <th>Г„ГҐГ©Г±ГІГўГЁГї</th>
                </tr>
                <tr>
                 <td data-label="ID">720577fd-8fba-4b32-a515-2ae273841bd8</td>
-                <td data-label="Название приложения" class="table-name">Promo - косметология</td>
+                <td data-label="ГЌГ Г§ГўГ Г­ГЁГҐ ГЇГ°ГЁГ«Г®Г¦ГҐГ­ГЁГї" class="table-name">Promo - ГЄГ®Г±Г¬ГҐГІГ®Г«Г®ГЈГЁГї</td>
                 <td data-label="Email">v.finchenko@growapp.biz</td>
-                <td data-label="Действия" class="table-button">
-                    <button class="btn-default btn-tb btn-edit-event">Редактировать</button>
-                    <button class="btn-default btn-tb btn-tb__red">Удалить</button>                
+                <td data-label="Г„ГҐГ©Г±ГІГўГЁГї" class="table-button">
+                    <button class="btn-default btn-tb btn-edit-event">ГђГҐГ¤Г ГЄГІГЁГ°Г®ГўГ ГІГј</button>
+                    <button class="btn-default btn-tb btn-tb__red">Г“Г¤Г Г«ГЁГІГј</button>                
                 </td>
               </tr>
              </table>
@@ -76,7 +76,5 @@ app-org__table{
     .app-org__table td:before, .app-org__table th:before {
         content: attr(data-label);
         float: left;
-        text-transform: uppercase;
-        font-weight: bold; 
     } 
 }
