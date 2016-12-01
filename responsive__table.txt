@@ -1,0 +1,82 @@
+/*********************** HTML ***********************/
+
+           <table class="app-org__table">
+               <tr>
+                <th>ID</th>
+                <th>Название приложения</th>
+                <th>Email</th>
+                <th>Действия</th>
+               </tr>
+               <tr>
+                <td data-label="ID">720577fd-8fba-4b32-a515-2ae273841bd8</td>
+                <td data-label="Название приложения" class="table-name">Promo - косметология</td>
+                <td data-label="Email">v.finchenko@growapp.biz</td>
+                <td data-label="Действия" class="table-button">
+                    <button class="btn-default btn-tb btn-edit-event">Редактировать</button>
+                    <button class="btn-default btn-tb btn-tb__red">Удалить</button>                
+                </td>
+              </tr>
+             </table>
+
+
+/*********************** CSS ***********************/
+
+app-org__table{
+    width: 100%;
+    font-family: HelveticaNeue-300;
+    font-size: 16px;
+/*    font-weight: 300;*/
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.44;
+    letter-spacing: 0.7px;
+    color: #496179; 
+/*    border-color: #e4eaf5;*/
+    border-collapse: collapse;    
+}
+.app-org__table th{
+    height: 38px;
+    font-weight: normal;
+    text-align: left;
+    padding-left: 21px;
+    border-collapse: collapse;
+    border-right: 1px solid #e4eaf5;
+    border-bottom: 1px solid #e4eaf5;
+    
+}
+.app-org__table td{
+/*     height: 72px; */
+    vertical-align: text-top;
+    padding-top: 26px;
+    padding-bottom: 26px;
+    padding-left: 21px;
+    border-collapse: collapse;
+    border: 1px solid #e4eaf5;
+    border-left: none; 
+    border-top: none;
+}
+.app-org__table td:last-child, .app-org__table th:last-child{
+    border-right: none;
+}
+
+
+
+
+@media screen and (max-width: 970px) {
+    .app-org__table th {
+        display: none;
+    } 
+    .app-org__table td {
+        display: block;
+        width: 100%\9;
+        float: left\9;
+        text-align: right;
+        border-right: none;
+    }
+    .app-org__table td:before, .app-org__table th:before {
+        content: attr(data-label);
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold; 
+    } 
+}
