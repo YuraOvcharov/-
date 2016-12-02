@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>SVG Loaders - Sam Herbert</title>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <style>
+
+    .icon {
+          display: inline-block;
+          width: 1em;
+          height: 1em;
+          vertical-align: middle;
+    }
+
+    .icon--heart {
+        background-image: url(http://yoksel.github.io/assets/img/sprites-icomoon/sprites.svg);
+        background-size: auto 100%;
+    }
+
+    .icon--cloud {
+        background-image: url(http://yoksel.github.io/assets/img/sprites-icomoon/sprites.svg);
+        background-size: auto 100%;
+        background-position: -1.5em 0;
+    }
+    #b{
+        stroke-width: 180;
+        stroke: yellowgreen;
+        stroke-opacity: .5;
+        stroke-dasharray: 5;
+    }
+
+
+    </style>
+</head>
+
+<body>
+  <ul>
+    <li><span class="icon icon--heart"></span></li>
+    <li><span class="icon icon--cloud"></span></li>
+    <li><span class="icon icon--star"></span></li>
+    <li>
+        <span class="icon">
+            <svg width="20px" height="20px" viewbox="0 0 32 32">
+                <use xlink:href='#a' fill="currentColor"/>
+            </svg>
+        </span>
+    </li>
+    <li>
+        <span class="icon">
+            <svg width="20px" height="20px" viewbox="0 0 32 32">
+                <use xlink:href='#b' fill="currentColor"/>
+            </svg>
+        </span>
+    </li>
+    <li>
+        <span class="icon">
+            <svg width="20px" height="20px" viewbox="0 0 52 52">
+                <use xlink:href='#b' fill="red"/>
+            </svg>
+        </span>
+    </li>
+    </ul>
+
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='272' height='32' viewBox='0 0 272 32'>
+    <defs>
+        <path class='path1' id='a' d="M29.193 5.265c-3.629-3.596-9.432-3.671-13.191-.288-3.76-3.383-9.561-3.308-13.192.288-3.741 3.704-3.741 9.709 0 13.415 1.069 1.059 11.053 10.941 11.053 10.941 1.183 1.172 3.096 1.172 4.278 0 0 0 10.932-10.822 11.053-10.941 3.742-3.706 3.742-9.711-.001-13.415zm-1.425 12.003l-11.053 10.941c-.393.391-1.034.391-1.425 0l-11.053-10.941c-2.95-2.92-2.95-7.671 0-10.591 2.844-2.815 7.416-2.914 10.409-.222l1.356 1.22 1.355-1.22c2.994-2.692 7.566-2.594 10.41.222 2.95 2.919 2.95 7.67.001 10.591zm-18.515-9.767c.277 0 .5.224.5.5s-.224.5-.5.5h-.001c-1.794 0-3.249 1.455-3.249 3.249v.001c0 .276-.224.5-.5.5s-.5-.224-.5-.5c0-2.346 1.901-4.247 4.246-4.249l.004-.001z">
+             <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        from="0 16 16"
+                        to="360 16 16"
+                        dur="2s"
+                        repeatCount="indefinite"/> 
+        </path>         
+        <path class='path1' id="b" d="M25.914 13.143c-.437-4.563-4.236-8.143-8.914-8.143-3.619 0-6.717 2.148-8.146 5.23-.43-.136-.878-.23-1.353-.23-2.485 0-4.5 2.016-4.5 4.5 0 .494.099.961.246 1.404-1.933 1.127-3.246 3.195-3.246 5.594 0 3.59 2.91 6.5 6.5 6.5v.002l17.999-.002c4.143 0 7.5-3.357 7.5-7.5 0-3.656-2.621-6.693-6.086-7.355zm-1.414 12.855v.002h-17.999c-2.481-.002-4.5-2.02-4.5-4.502 0-1.6.843-3.045 2.254-3.867 1.371-.787 1.465-.943.89-2.357-.097-.291-.144-.544-.144-.773 0-1.379 1.121-2.5 2.5-2.5 0 0 .656-.047 1.353.23 1.147.457 1.272.02 1.814-1.159 1.147-2.473 3.632-4.072 6.332-4.072 3.6 0 6.576 2.723 6.924 6.334.123 1.432.123 1.432 1.615 1.773 2.586.494 4.461 2.762 4.461 5.391 0 3.033-2.467 5.5-5.5 5.5z">
+                     <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        from="0 16 16"
+                        to="360 16 16"
+                        dur="0.2s"
+                        repeatCount="indefinite"/>
+        </path>                
+        <path  id="Shape" d="M26,0 C11.6407891,0 0,11.6405859 0,26 C0,40.3594141 11.6407891,52 26,52 C40.3592109,52 52,40.3594141 52,26 C52,11.6405859 40.3592109,0 26,0 L26,0 Z M34.98625,27.3782031 L21.98625,35.5032031 C21.7232031,35.6674297 21.4241016,35.75 21.125,35.75 C20.8540313,35.75 20.5826563,35.6825625 20.3370781,35.5460625 C19.8205313,35.2596563 19.5,34.7160938 19.5,34.125 L19.5,17.875 C19.5,17.2839063 19.8205313,16.7403438 20.3370781,16.4539375 C20.853625,16.1659063 21.4852422,16.183375 21.98625,16.4967969 L34.98625,24.6217969 C35.4611563,24.919375 35.75,25.4398828 35.75,26 C35.75,26.5601172 35.4611563,27.0807266 34.98625,27.3782031 L34.98625,27.3782031 Z">
+                     <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        from="0 26 26"
+                        to="360 26 26"
+                        dur="1s"
+                        repeatCount="indefinite"/>
+                        
+        
+        </path>
+    </defs>
+</svg>
+
+
+
+
+</body>
+
+</html>
