@@ -1,0 +1,80 @@
+<div class="form-group">
+    <div class="upload-file">
+        <div class="upload-file__toggle" data-placeholder="Прикрепить файл">
+            <span>Прикрепить файл</span>
+        </div>
+        <div class="upload-file__clear"></div>
+        <input class="upload-file__input" type="file" name="file">
+    </div>
+</div>
+
+
+
+
+
+<!--
+var inputFile = (function() {
+
+    var el;
+    var clearButton;
+    var input;
+    var toggle;
+    var placeholder;
+
+    function inputChange(e) {
+        var field = $(e.currentTarget).closest('.upload-file');
+        var toggle = field.find('.upload-file__toggle');
+        var text = toggle.find('span');
+        var input = field.find('.upload-file__input');
+        var filename = input.val().split('\\').pop();
+
+        if (filename === '') {
+            inputFile.clearField(field);
+        } else {
+            field.addClass('upload-file--added');
+            text.text(filename);
+        }
+    }
+
+    return {
+        init: function() {
+
+        	el = $('.upload-file');
+		    clearButton = el.find('.upload-file__clear');
+		    input = el.find('.upload-file__input');
+		    toggle = el.find('.upload-file__toggle');
+		    title = el.find('.upload-file__toggle span');
+            placeholder = title.data('placeholder');
+
+            this.bindEvents();
+        },
+
+        bindEvents: function() {
+
+            toggle.click(function(event) {
+                input.click();
+            });
+
+            input.change(function (e) {
+                inputChange(e);
+            });
+
+            clearButton.click( $.proxy(this.clearField, this) );
+        },
+
+        clearField: function(e) {
+        	var field = $(e.currentTarget).closest('.upload-file');
+            var toggle = field.find('.upload-file__toggle');
+            var text = toggle.find('span');
+            var placeholder = toggle.data('placeholder');
+            var input = field.find('.upload-file__input');
+
+            input.val('');
+            field.removeClass('upload-file--added');
+            text.text(placeholder);
+        }
+    };
+}());
+
+inputFile.init();
+-->
