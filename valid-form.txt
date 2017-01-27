@@ -1,0 +1,77 @@
+<form class="authorization" id="auth-form">
+	<input type="password" name="password" id="pass-input"  minlength="7" maxlength="28" required>
+	
+	<div class="errorContainer">
+		<ul class="password-conditions">
+			<li class="password-conditions-item" id="pw-min-7chars">
+				Не короче 7 символов
+			</li>
+			<li class="password-conditions-item" id="pw-min-1number">
+				Содержит цифры
+			</li>
+			<li class="password-conditions-item" id="pw-min-1char">
+				Есть буквы латинского алфавита
+			</li>
+		</ul>
+	</div>
+	
+	<button type="submit" class="button authorization-btn" id="reg-pass-fb">Зарегистрироваться</button>
+</form>
+
+.password-conditions{
+    padding-left: 45px;
+    list-style: none;
+    margin-bottom: 14px;
+}
+.password-conditions-item{
+    position: relative;
+    display: block;
+    color: #4a4a4a;
+    font-family: Whitney-Book;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2;
+}
+.password-conditions-item:before{
+    position: absolute;
+    top: 5px;
+    left: -20px;
+    width: 12px;
+    height: 12px;
+    background: url(../images/password-condition-item.svg) 50% no-repeat;
+    background-size: 6px 6px;
+    content: "";
+}
+.password-conditions-item.check:before{
+    background: url(../images/password-condition-success.svg) 50% no-repeat;
+}
+.password-conditions-item.check{
+    color: #000000;
+}
+
+   /* VALIDATION FORMS */
+    $.validator.addMethod('inspect_num_alphabetic', function(value, element) {
+        return this.optional(element) || (value.match(/[a-zA-Z]/) && value.match(/[0-9]/));
+    },'');
+
+    jQuery.validator.setDefaults({
+        debug: true,
+        success: "valid"
+    });
+    var validator = $("#auth-form").validate({
+        rules :{
+            password: {
+                required: true,
+                minlength: 7,
+                inspect_num_alphabetic: true
+            }
+        },
+        messages:{
+            password:{
+                required: "Вы не ввели пароль",
+                minlength: "",
+            },
+        },
+    });
