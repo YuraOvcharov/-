@@ -1,0 +1,28 @@
+1. npm install --save-dev babel-cli babel-preset-env
+
+2. Add into package.json
+
+  "scripts": {
+     "start": "babel FILE_NAME.js -o NEW_FILE_NAME.js"  or babel src -d lib (из папеи в папку)
+  },
+  "babel": {
+    "presets": ["env"]
+  },
+
+Now from our terminal we can run: npm start
+
+3. FOR START COMPILATION: npm start
+
+4. Если POlYFILL нужен, то:
+	a) npm install --save babel-polyfill
+	b) add import "babel-polyfill"; within using file
+	c) npm install --save-dev babel-plugin-transform-runtime
+	d) npm install --save babel-runtime
+	e) add  "plugins": [
+    ["transform-runtime", {
+      "helpers": false,
+      "polyfill": false,
+      "regenerator": true,
+      "moduleName": "babel-runtime"
+    }]
+  ] in "babel"
