@@ -3,13 +3,11 @@
 2. Add into package.json
 
   "scripts": {
-     "start": "babel FILE_NAME.js -o NEW_FILE_NAME.js"  or babel src -d lib (из папеи в папку)
+     "start": "babel FILE_NAME.js -o NEW_FILE_NAME.js"  or babel src -d lib (из папки в папку)
   },
   "babel": {
     "presets": ["env"]
   },
-
-Now from our terminal we can run: npm start
 
 3. FOR START COMPILATION: npm start
 
