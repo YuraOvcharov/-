@@ -1,0 +1,17 @@
+1. npm install --save @ng-bootstrap/ng-bootstrap
+2. In app.module.ts add 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+@NgModule({
+  declarations: [/*...*/],
+  imports: [/*...*/, NgbModule.forRoot()],
+  /*...*/
+})
+
+3. add in .angular.json
+  "styles": [
+    "src/styles.scss",
+    {
+      "input": "./node_modules/bootstrap/dist/css/bootstrap.css"
+    }
+  ],

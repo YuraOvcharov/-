@@ -1,0 +1,36 @@
+header {
+  text-align: center;
+  overflow: hidden;
+}
+
+h1 {
+  display: inline-block;
+  position: relative;
+}
+
+h1:before,
+h1:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  height: 1px;
+  background: #000;
+}
+
+h1:before {
+  right: 100%;
+  left: -1000%;
+}
+
+h1:after {
+  left: 100%;
+  right: -1000%;
+}
+
+<section>
+  <header>
+    <h1>
+      Lorem ipsum.
+    </h1>
+  </header>
+</section>{\rtf1}

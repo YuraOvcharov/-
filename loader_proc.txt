@@ -1,0 +1,67 @@
+/******************* HTML *******************/	
+	<div id="page-preloader" class="preloader">
+		<div class="loader">
+			<span id="load-perc">0%</span>
+		</div>
+	</div>
+
+/******************* JS *******************/
+
+let 
+    images = document.images,
+    images_total_count = images.length,
+    images_loaded_count = 0,
+    preloader = document.getElementById('page-preloader'),
+    perc_display = document.getElementById('load-perc');
+
+    for (let i = 0; i < images_total_count; i++){
+        image_clone = new Image();
+        image_clone.onload = image_loaded;
+        image_clone.onerror = image_loaded;
+        image_clone.src = images[i].src;
+    }
+
+function image_loaded(){
+    images_loaded_count++;
+    perc_display.innerHTML = (( (100 / images_total_count) * images_loaded_count) << 0 ) + '%';
+    if (images_loaded_count >= images_total_count){
+        setTimeout(function(){
+            if (!preloader.classList.contains('done')){
+                preloader.classList.add('done');
+            }
+        },1000);
+    }
+};
+
+
+/******************* CSS *******************/
+
+.preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 3;
+    transition: 1s all; 
+    opacity: 1;
+    visibility: visible;
+
+    .loader {
+        width: 100%;
+        height: 75px;
+        line-height: 75px;
+        text-align: center;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        font-size: 70px;
+    }
+
+    &.done {
+        opacity: 0;
+        visibility: hidden;
+    }
+}

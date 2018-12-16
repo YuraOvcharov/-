@@ -1,0 +1,7 @@
+If your need add "border-bottom" you have 2 varient
+
+1. Add to nav-link:hover "box-shadow: 0 1px rgba($color: $border-color, $alpha: 0.15);"
+
+2. Add to nav-link "border-bottom: 1px solid transparent;"
+   add to nav-link:hover "border-bottom: 1px solid COLOR;"
+
