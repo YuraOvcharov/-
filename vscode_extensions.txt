@@ -1,0 +1,13 @@
+brunnerh.insert-unicode
+CoenraadS.bracket-pair-colorizer
+dbaeumer.jshint
+dbaeumer.vscode-eslint
+dsznajder.es7-react-js-snippets
+eamodio.gitlens
+formulahendry.auto-close-tag
+formulahendry.auto-rename-tag
+formulahendry.code-runner
+liximomo.sftp
+pranaygp.vscode-css-peek
+robertohuertasm.vscode-icons
+Zignd.html-css-class-completion
