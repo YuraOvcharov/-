@@ -1,0 +1,210 @@
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
+import { withStyles, Button, IconButton, Tooltip } from '@material-ui/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    faDownload,
+    faBars,
+    faTimes,
+    faCamera,
+    faPollH,
+    faFileDownload
+    // faChartBar
+} from '@fortawesome/free-solid-svg-icons';
+
+const styles = theme => ({
+
+    //primary color #0277bd
+    blockFab: {
+        zIndex: 500,
+        bottom: 20,
+        left: "50%",
+        transform: "translate(-50%, 0)",
+        position: "fixed",
+        textDecoration: "none",
+        [theme.breakpoints.down('sm')]: {
+            bottom: 10,
+        },
+    },
+    blockFabHidden: {
+        zIndex: 300
+    },
+    fab: {
+        backgroundColor: "#004d8c",
+        '&:hover': {
+            backgroundColor: "#0278bd",
+        },
+    },
+    link: {
+        background: "none",
+    },
+    menu: {
+        position: "relative",
+    },
+    menuProfile: {
+        opacity: 0,
+        position: "absolute",
+        top: 0,
+        left: 0,
+        color: "#fff",
+        textDecoration: "none",
+        transition: "left 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), margin-top 1s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 1.1s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+        transform: "translate(-50%,-100%)",
+    },
+    btn: {
+        width: 70,
+        height: 70,
+        borderRadius: "50%",
+        transition: "all 0.6s cubic-bezier(0.23, 1, 0.32, 1)"
+    },
+    btnArchive: {
+        backgroundColor: "#008da6",
+        '&:hover': {
+            backgroundColor: "#008da6",
+            transform: "scale(1.2)"
+        },
+    },
+    btnPhotos: {
+        backgroundColor: "#8d542e",
+        '&:hover': {
+            backgroundColor: "#8d542e",
+            transform: "scale(1.2)"
+        },
+    },
+    btnMonitoring: {
+        backgroundColor: "#00875a",
+        '&:hover': {
+            backgroundColor: "#00875a",
+            transform: "scale(1.2)"
+        },
+    },
+    btnPdf: {
+        backgroundColor: "#cc4388",
+        '&:hover': {
+            backgroundColor: "#cc4388",
+            transform: "scale(1.2)"
+        },
+    },
+    tooltip: {
+        marginLeft: 20
+    },
+})
+
+class FabMenu extends React.Component {
+    static propTypes = {
+        dumpProfile: PropTypes.string.isRequired,
+        exportProfile: PropTypes.string.isRequired,
+        profileId: PropTypes.string.isRequired,
+    }
+
+    constructor(props) {
+        super(props);
+        this.menu = React.createRef();
+        this.makeMenu = this.makeMenu.bind(this);
+        this.changeHumburger = this.changeHumburger.bind(this);
+        this.state = {
+            isOpenHamburger: false
+        }
+    }
+
+    changeHumburger() {
+        this.setState({
+            isOpenHamburger: !this.state.isOpenHamburger
+        },
+            () => this.makeMenu()
+        );
+    }
+
+    makeMenu() {
+        //set radius
+        const r = 150;
+        const arcLenght = 180;
+        //length of the space left and right in an arc
+        const space = 40;
+        //count anchor elements
+        const counter = this.menu.childNodes.length - 1;
+        //set anglesteps
+        const step = (arcLenght - space * 2) / counter;
+        //set starting angle
+        let angleRotation = (0 - step) + space;//0 - step;
+        // convert to radian
+        let rad;
+        let x = 0;
+        let y = 0;
+        if (this.state.isOpenHamburger) {
+            for (let i = 0; i <= counter; i++) {
+                angleRotation += step;
+                rad = angleRotation * (Math.PI / arcLenght);
+                x = Math.round(r * Math.cos(rad));
+                y = Math.round(r * Math.sin(rad));
+                this.menu.childNodes[i].style = `left: ${x}px; margin-top: ${-1 * y}px; opacity: 1 `;
+            }
+        } else {
+            for (let i = 0; i <= counter; i++) {
+                this.menu.childNodes[i].style = `left: 0; margin-top: 0; opacity: 0`;
+            }
+        }
+    }
+
+    render() {
+        const { classes, exportProfile, profileId, dumpProfile } = this.props;
+        const { isOpenHamburger } = this.state;
+        return (
+            <Fragment>
+                <div className={classes.blockFab}>
+                    <Tooltip title="Меню" placement="top"
+                        classes={{ tooltip: classes.tooltip }}
+                    >
+                        <Button
+                            className={` ${classes.btn} ${classes.fab}`}
+                            onClick={this.changeHumburger}
+                        >
+                            <FontAwesomeIcon icon={isOpenHamburger ? faTimes : faBars} size="2x" color="white" />
+                        </Button>
+                    </Tooltip>
+                </div>
+                <div className={`${classes.blockFab} ${classes.blockFabHidden}`}>
+                    <div ref={(node) => { this.menu = node }} className={classes.menu}>
+                        <a href={dumpProfile} className={`${classes.menuProfile} ${classes.link}`} download>
+                            <Tooltip title="Скачать pdf" classes={{ tooltip: classes.tooltip }}>
+                                <Button className={`${classes.btn} ${classes.btnArchive}`} onClick={this.changeHumburger}>
+                                    <FontAwesomeIcon icon={faFileDownload} size="lg" color="white" />
+                                </Button>
+                            </Tooltip>
+                        </a>
+                        <a href={exportProfile} className={`${classes.menuProfile} ${classes.link}`} download>
+                            <Tooltip title="Скачать архив" classes={{ tooltip: classes.tooltip }}>
+                                <Button className={`${classes.btn} ${classes.btnPdf}`} onClick={this.changeHumburger}>
+                                    <FontAwesomeIcon icon={faDownload} size="lg" color="white" />
+                                </Button>
+                            </Tooltip>
+                        </a>
+                        <Link
+                            to={`/profiles/${profileId}/analysis-photos`}
+                            className={classes.menuProfile}
+                        >
+                            <Tooltip title="Проанализировать изображения" classes={{ tooltip: classes.tooltip }}>
+                                <IconButton className={`${classes.btn} ${classes.btnPhotos}`} onClick={this.changeHumburger}>
+                                    <FontAwesomeIcon icon={faCamera} size="xs" color="white" />
+                                </IconButton>
+                            </Tooltip>
+                        </Link>
+                        <Link
+                            to={`/profiles/${profileId}/monitoring`}
+                            className={classes.menuProfile}
+                        >
+                            <Tooltip title="Мониторинг" classes={{ tooltip: classes.tooltip }}>
+                                <IconButton className={`${classes.btn} ${classes.btnMonitoring}`} onClick={this.changeHumburger}>
+                                    <FontAwesomeIcon icon={faPollH} size="xs" color="white" />
+                                </IconButton>
+                            </Tooltip>
+                        </Link>
+                    </div>
+                </div>
+            </Fragment >
+        )
+    }
+}
+
+export default withStyles(styles)(FabMenu);
